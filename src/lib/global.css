@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #252f27;
+  color: #fff;
+  font-family: DM Sans;
+}
