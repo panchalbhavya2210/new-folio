@@ -48,6 +48,8 @@
           "stroke-dashoffset": 0,
           duration: 1 + index * 0.1, // Adjust duration for staggered effect
           ease: "power1.inOut",
+          opacity: 1,
+          delay: 1,
         }
       );
     });
