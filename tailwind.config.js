@@ -7,6 +7,7 @@ export default {
       "light-cyan": "#00f8b4",
       "dimmed-cyan": "#52b79f",
       "nav-color": "#2A372D",
+      "text-black": "#000",
     },
     extend: {},
   },

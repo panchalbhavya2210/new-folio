@@ -50,14 +50,14 @@
 
 <main>
   <div
-    class="w-11/12 mx-auto bg-nav-color p-3 rounded-lg mt-5 overflow-hidden fixed fixed-container"
+    class="w-11/12 mx-auto bg-nav-color bg-opacity-55 backdrop-blur-lg p-3 rounded-lg mt-5 overflow-hidden fixed fixed-container"
   >
     <div class="flex justify-between items-center">
       <div>
         <img src={Logo} alt="" class="box opacity-0" />
       </div>
       <div
-        class="links sm:justify-between lg:w-2/5 md:w-96 sm:w-96 sm:flex md:flex lg:flex hidden mr-5 text-xl"
+        class="links sm:justify-between lg:w-6/12 md:w-96 sm:w-96 sm:flex md:flex lg:flex hidden mr-5 text-xl"
       >
         <div
           class="link opacity-0 link-ani p-2 aria"
