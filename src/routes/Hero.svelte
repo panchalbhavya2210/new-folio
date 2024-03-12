@@ -1,7 +1,7 @@
 <script>
   import gsap from "gsap";
   import TextPlugin from "gsap/dist/TextPlugin";
-  import maple from "../lib/assets/tree.svg";
+  import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
   import { onMount } from "svelte";
 
   let clock = new Date();
@@ -16,7 +16,7 @@
   }
 
   onMount(() => {
-    gsap.registerPlugin(TextPlugin);
+    gsap.registerPlugin(TextPlugin, ScrollToPlugin);
     gsap.to(".box", {
       opacity: 1,
       duration: 0.5,
@@ -24,6 +24,9 @@
     gsap.to(".fstack", {
       width: "100%",
       duration: 1,
+    });
+    gsap.to(".btn", {
+      transform: "scale(1)",
     });
 
     const paths = document.querySelectorAll(".one-line");
@@ -48,10 +51,20 @@
       );
     });
   });
+
+  function scrollTo() {
+    gsap.to(window, {
+      duration: 0.7,
+      scrollTo: {
+        y: "#section-next",
+      },
+      ease: "power1.inOut",
+    });
+  }
 </script>
 
 <main>
-  <div class="flex lg:justify-between max-w-full overflow-hidden min-h-screen">
+  <div class="flex lg:justify-between max-w-full overflow-hidden min-h-svh">
     <div
       class="box relative top-28 sm:px-14 md:px-14 lg:px-14 px-10 leading-10 opacity-0"
     >
@@ -83,8 +96,23 @@
         </div>
         &nbsp;developer.
       </div>
+      <div class="btn block sm:hidden md:hidden lg:hidden mt-12">
+        <button
+          class="border border-lime-yellow backdrop-blur-sm text-left w-40"
+          aria-label="Explore my work"
+          on:click={scrollTo}
+        >
+          <p class="ml-2 text-2xl">
+            EXPLORE
+            <br />MY <span class="text-lime-yellow">WORK</span>.
+          </p>
+        </button>
+      </div>
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-static-element-interactions -->
       <div
-        class="arrow relative -top-8 -left-2 sm:left-2.5 md:left-2.5 lg:left-5 lg:-top-16"
+        on:click={scrollTo}
+        class="arrow hidden relative -top-8 -left-2 sm:left-2.5 md:left-2.5 lg:left-5 lg:-top-16 sm:block md:block lg:block"
       >
         <svg
           class="cursor-pointer"
@@ -554,7 +582,7 @@
     </div>
   </div>
 
-  <div class="newsec relative">
+  <div class="newsec relative" id="section-next">
     <h2>hello</h2>
     <h2>hello</h2>
     <h2>hello</h2>

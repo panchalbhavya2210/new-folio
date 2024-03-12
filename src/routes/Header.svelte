@@ -1,10 +1,8 @@
 <script>
   import gsap from "gsap";
   import { onMount } from "svelte";
-  // import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
   import ScrollTrigger from "gsap/dist/ScrollTrigger";
   import { page } from "$app/stores";
-  // register the effect with GSAP:
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -65,19 +63,16 @@
 
     const paths = document.querySelectorAll(".my-path");
 
-    // Animate stroke of each path
     paths.forEach((path, index) => {
       gsap.fromTo(
         path,
         {
-          // Set initial stroke-dasharray to the length of the path
           "stroke-dasharray": path.getTotalLength(),
           "stroke-dashoffset": path.getTotalLength(),
         },
         {
-          // Animate stroke-dashoffset to 0
           "stroke-dashoffset": 0,
-          duration: 1 + index * 0.1, // Adjust duration for staggered effect
+          duration: 1 + index * 0.1,
           ease: "power1.inOut",
           opacity: 1,
           delay: 1,
@@ -90,7 +85,6 @@
   function toggleMenu() {
     isOpen = !isOpen;
 
-    // Animate hamburger bars
     if (isOpen) {
       gsap.to(".burger", {
         rotate: 45,
@@ -193,57 +187,75 @@
       <div
         class="links sm:justify-between lg:w-6/12 md:w-96 sm:w-8/12 sm:flex md:flex lg:flex hidden mr-5 text-xl"
       >
-        <div
-          class="link opacity-0 link-ani p-2 aria"
-          aria-current={$page.url.pathname === "/" ? "page" : undefined}
-        >
-          <a href="/">Home</a>
-        </div>
-        <div
-          class="link1 opacity-0 link-ani p-2 aria"
-          aria-current={$page.url.pathname === "/About" ? "page" : undefined}
-        >
-          <a href="/">About Me</a>
-        </div>
-        <div
-          class="link2 opacity-0 link-ani p-2 aria"
-          aria-current={$page.url.pathname === "/Work" ? "page" : undefined}
-        >
-          <a href="/">My Work</a>
-        </div>
-        <div
-          class="link3 opacity-0 link-ani p-2 aria"
-          aria-current={$page.url.pathname === "/Connect" ? "page" : undefined}
-        >
-          <a href="/">Connect</a>
-        </div>
+        <a href="/">
+          <div
+            class="link opacity-0 link-ani p-2 aria"
+            aria-current={$page.url.pathname === "/" ? "page" : undefined}
+          >
+            Home
+          </div>
+        </a>
+        <a href="/About">
+          <div
+            class="link1 opacity-0 link-ani p-2 aria"
+            aria-current={$page.url.pathname === "/About" ? "page" : undefined}
+          >
+            About Me
+          </div>
+        </a>
+        <a href="/Work">
+          <div
+            class="link2 opacity-0 link-ani p-2 aria"
+            aria-current={$page.url.pathname === "/Work" ? "page" : undefined}
+          >
+            My Work
+          </div>
+        </a>
+        <a href="/Contact">
+          <div
+            class="link3 opacity-0 link-ani p-2 aria"
+            aria-current={$page.url.pathname === "/Contact"
+              ? "page"
+              : undefined}
+          >
+            Connect
+          </div>
+        </a>
       </div>
     </div>
     <div class="mobile-menu sm:hidden md:hidden lg:hidden">
-      <div
-        class="link opacity-0 link-ani-mob p-2 aria-mobile my-5 mt-10"
-        aria-current={$page.url.pathname === "/" ? "page" : undefined}
-      >
-        <a href="/">Home</a>
-      </div>
-      <div
-        class="link1 opacity-0 link-ani-mob p-2 aria-mobile my-5"
-        aria-current={$page.url.pathname === "/About" ? "page" : undefined}
-      >
-        <a href="/">About Me</a>
-      </div>
-      <div
-        class="link2 opacity-0 link-ani-mob p-2 aria-mobile my-5"
-        aria-current={$page.url.pathname === "/Work" ? "page" : undefined}
-      >
-        <a href="/">My Work</a>
-      </div>
-      <div
-        class="link3 opacity-0 link-ani-mob p-2 aria-mobile my-5"
-        aria-current={$page.url.pathname === "/Connect" ? "page" : undefined}
-      >
-        <a href="/">Connect</a>
-      </div>
+      <a href="/">
+        <div
+          class="link opacity-0 link-ani-mob p-2 aria-mobile my-5 mt-10"
+          aria-current={$page.url.pathname === "/" ? "page" : undefined}
+        >
+          Home
+        </div>
+      </a>
+      <a href="/">
+        <div
+          class="link1 opacity-0 link-ani-mob p-2 aria-mobile my-5"
+          aria-current={$page.url.pathname === "/About" ? "page" : undefined}
+        >
+          About Me
+        </div>
+      </a>
+      <a href="/">
+        <div
+          class="link2 opacity-0 link-ani-mob p-2 aria-mobile my-5"
+          aria-current={$page.url.pathname === "/Work" ? "page" : undefined}
+        >
+          My Work
+        </div>
+      </a>
+      <a href="/">
+        <div
+          class="link3 opacity-0 link-ani-mob p-2 aria-mobile my-5"
+          aria-current={$page.url.pathname === "/Connect" ? "page" : undefined}
+        >
+          Connect
+        </div>
+      </a>
     </div>
   </div>
 </main>
@@ -262,6 +274,7 @@
     transition: all 0.3s;
     color: #000;
     cursor: pointer;
+    margin-bottom: 1px;
   }
   .link-ani-mob::before {
     content: "";
@@ -278,7 +291,7 @@
     cursor: pointer;
   }
   .link-ani:nth-child(2)::before {
-    top: 00%;
+    top: 0%;
   }
   .link-ani:nth-child(4)::before {
     top: 00%;
