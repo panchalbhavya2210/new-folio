@@ -9,7 +9,11 @@ export default {
       "nav-color": "#2A372D",
       "text-black": "#000",
     },
-    extend: {},
+    extend: {
+      spacing: {
+        "nav-20": "70px",
+      },
+    },
   },
   plugins: [],
 };
