@@ -52,13 +52,38 @@
         }
       );
     });
+
+    let docInter = document.querySelectorAll(".sectionNext");
+    const opt = {
+      threshold: 0.2,
+    };
+    const obes = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          gsap.to(".pathing", {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+          });
+          gsap.to(".rotatearr", {
+            rotate: -395,
+            duration: 1,
+          });
+        }
+      });
+    }, opt);
+
+    docInter.forEach((item) => {
+      obes.observe(item);
+    });
   });
 
   function scrollTo() {
+    const newY = document.querySelector("#section-next").offsetTop - 100;
     gsap.to(window, {
       duration: 0.7,
       scrollTo: {
-        y: "#section-next",
+        y: newY,
       },
       ease: "power1.inOut",
     });
@@ -587,6 +612,121 @@
   </div>
 
   <div id="section-next" class="sectionNext">
+    <div class="sm:flex md:flex lg:flex">
+      <div class="m-flex flex">
+        <div
+          class="bioDiv text-center ml-3 bg-lime-yellow h-32 text-text-black text-3xl p-3 font-bold"
+        >
+          <p class="">B</p>
+          <p class="-rotate-360 rotatearr">I</p>
+          <p>O</p>
+        </div>
+
+        <div
+          class="imgSelf w-32 h-32 overflow-hidden flex justify-center items-center rounded-full ml-3 sm:ml-16 sm:mr-16"
+        >
+          <img
+            src={MyImage}
+            alt=""
+            class="object-cover scale-150 -translate-y-7"
+          />
+        </div>
+      </div>
+      <div class="para">
+        <h1
+          class="sm:text-4xl md:text-4xl lg:text-4xl text-2xl ml-2 mt-5 font-semibold flex items-center"
+        >
+          Full-Stack&nbsp;<span class="text-lime-yellow"
+            ><svg
+              width="65"
+              height="54"
+              viewBox="0 0 65 54"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M63.1147 39.0152L33.1047 53.0472L0.76751 36.8181L31.5676 21.3877L63.1147 39.0152Z"
+                fill="#B4C509"
+                class="pathing -translate-y-3 opacity-0"
+              />
+              <path
+                d="M64.0573 28.7158L34.0474 42.7477L1.71017 26.5187L32.5103 11.0883L64.0573 28.7158Z"
+                fill="#C1D309"
+                class="pathing -translate-y-3 opacity-0"
+              />
+              <path
+                d="M65 18.4164L34.99 32.4483L2.65282 16.2192L33.4529 0.788866L65 18.4164Z"
+                fill="#E6FC00"
+                class="pathing -translate-y-3 opacity-0"
+              />
+            </svg>
+          </span>&nbsp;developer.
+        </h1>
+        <div class="leadin-10">
+          <p class="text-xl my-4">
+            I am a full-stack developer with experience of over 1.5 year
+            creating my side projects.
+          </p>
+          <p class="text-xl my-4">
+            I want to develop a creative website while also providing a unique
+            experience to users.
+          </p>
+          <p class="text-xl my-4">
+            I also look forward to working with an experienced team to gain
+            experience too.
+          </p>
+        </div>
+      </div>
+    </div>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+  </div>
+  <div class="sectionNext">
     <div class="flex">
       <div
         class="bioDiv text-center bg-lime-yellow text-text-black text-5xl p-5 font-bold"
@@ -597,7 +737,7 @@
       </div>
 
       <div
-        class="imgSelf w-32 h-32 overflow-hidden flex justify-center items-center rounded-full sm:ml-16 sm:mr-16"
+        class="imgSelf w-32 h-32 overflow-hidden flex justify-center items-center rounded-full mr-0 sm:ml-16 sm:mr-16"
       >
         <img
           src={MyImage}
