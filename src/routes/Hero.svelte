@@ -2,7 +2,9 @@
   import gsap from "gsap";
   import TextPlugin from "gsap/dist/TextPlugin";
   import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
+  import Observer from "gsap/dist/Observer";
   import { onMount } from "svelte";
+  import MyImage from "../lib/assets/img-self.webp";
 
   let clock = new Date();
   let greeting = "";
@@ -14,9 +16,9 @@
   } else {
     greeting = "Good Evening,";
   }
-
   onMount(() => {
-    gsap.registerPlugin(TextPlugin, ScrollToPlugin);
+    let sectionNext = document.getElementById("section-next");
+    gsap.registerPlugin(TextPlugin, ScrollToPlugin, Observer);
     gsap.to(".box", {
       opacity: 1,
       duration: 0.5,
@@ -61,12 +63,13 @@
       ease: "power1.inOut",
     });
   }
+  // Define the target element
 </script>
 
 <main>
   <div class="flex lg:justify-between max-w-full overflow-hidden min-h-svh">
     <div
-      class="box relative top-28 sm:px-14 md:px-14 lg:px-14 px-10 leading-10 opacity-0"
+      class="box relative top-28 sm:px-14 md:px-14 lg:px-14 px-8 leading-10 opacity-0"
     >
       <p
         class="lg:text-7xl sm:text-6xl md:text-6xl text-4xl sm:my-6 md:my-6 lg:my-6 my-7 sm:hidden md:hidden lg:hidden"
@@ -89,7 +92,7 @@
         A&nbsp;
         <div class="outer-wrapper">
           <div
-            class="w-0 overflow-hidden fstack bg-lime-yellow text-text-black"
+            class="w-0 overflow-hidden fstack bg-lime-yellow px-2 text-text-black"
           >
             <span class="">fullstack</span>
           </div>
@@ -148,6 +151,7 @@
           height="610"
           viewBox="0 0 394 610"
           fill="none"
+          class="sm:opacity-100 md:opacity-100 lg:opacity-100 opacity-50"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -582,21 +586,112 @@
     </div>
   </div>
 
-  <div class="newsec relative" id="section-next">
-    <h2>hello</h2>
-    <h2>hello</h2>
-    <h2>hello</h2>
-    <h2>hello</h2>
-    <h2>hello</h2>
-    <h2>hello</h2>
-    <h2>hello</h2>
-    <h2>hello</h2>
-    <h2>hello</h2>
-    <h2>hello</h2>
-    <h2>hello</h2>
-    <h2>hello</h2>
-    <h2>hello</h2>
-    <h2>hello</h2>
+  <div id="section-next" class="sectionNext">
+    <div class="flex">
+      <div
+        class="bioDiv text-center bg-lime-yellow text-text-black text-5xl p-5 font-bold"
+      >
+        <p>B</p>
+        <p class="-rotate-45">I</p>
+        <p>O</p>
+      </div>
+
+      <div
+        class="imgSelf w-32 h-32 overflow-hidden flex justify-center items-center rounded-full sm:ml-16 sm:mr-16"
+      >
+        <img
+          src={MyImage}
+          alt=""
+          class="object-cover scale-150 -translate-y-7"
+        />
+      </div>
+
+      <div class="para leading-10">
+        <h1 class="text-4xl font-semibold flex items-center">
+          Full-Stack&nbsp;<span class="text-lime-yellow"
+            ><svg
+              width="65"
+              height="54"
+              viewBox="0 0 65 54"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M63.1147 39.0152L33.1047 53.0472L0.76751 36.8181L31.5676 21.3877L63.1147 39.0152Z"
+                fill="#B4C509"
+              />
+              <path
+                d="M64.0573 28.7158L34.0474 42.7477L1.71017 26.5187L32.5103 11.0883L64.0573 28.7158Z"
+                fill="#C1D309"
+              />
+              <path
+                d="M65 18.4164L34.99 32.4483L2.65282 16.2192L33.4529 0.788866L65 18.4164Z"
+                fill="#E6FC00"
+              />
+            </svg>
+          </span>&nbsp;developer.
+        </h1>
+        <p>
+          I am a full-stack developer with experience of over 1.5 year creating
+          my side projects.
+        </p>
+        <p>
+          I want to develop a creative website while also providing a unique
+          experience to users.
+        </p>
+        <p>
+          I also look forward to working with an experienced team to gain
+          experience too.
+        </p>
+      </div>
+    </div>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
   </div>
 </main>
 
