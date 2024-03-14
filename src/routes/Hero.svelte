@@ -76,6 +76,76 @@
     docInter.forEach((item) => {
       obes.observe(item);
     });
+    let btnN = document.getElementById("btnAbt");
+    btnN.onmouseenter = function () {
+      gsap.to(".pathingBeta", {
+        opacity: 1,
+      });
+      const svgEl = document.querySelectorAll(".path-arr");
+      svgEl.forEach((path, index) => {
+        gsap.fromTo(
+          path,
+          {
+            // Set initial stroke-dasharray to the length of the path
+            "stroke-dasharray": path.getTotalLength(),
+            "stroke-dashoffset": path.getTotalLength(),
+          },
+          {
+            // Animate stroke-dashoffset to 0
+            "stroke-dashoffset": 0,
+            duration: 0.5 + index * 0.1, // Adjust duration for staggered effect
+            ease: "power1.inOut",
+            opacity: 1,
+          }
+        );
+      });
+    };
+    btnN.onmouseleave = function () {
+      const svgEl = document.querySelectorAll(".path-arr");
+      svgEl.forEach((path, index) => {
+        gsap.to(path, {
+          "stroke-dashoffset": path.getTotalLength(),
+          duration: 0.5,
+          ease: "power1.inOut",
+          opacity: 0,
+        });
+      });
+    };
+    let btnW = document.getElementById("btnWrk");
+    btnW.onmouseenter = function () {
+      gsap.to(".pathingBeta2", {
+        opacity: 1,
+      });
+      const svgEl = document.querySelectorAll(".path-arr2");
+      svgEl.forEach((path, index) => {
+        gsap.fromTo(
+          path,
+          {
+            // Set initial stroke-dasharray to the length of the path
+            "stroke-dasharray": path.getTotalLength(),
+            "stroke-dashoffset": path.getTotalLength(),
+          },
+          {
+            // Animate stroke-dashoffset to 0
+            "stroke-dashoffset": 0,
+            duration: 0.5 + index * 0.1, // Adjust duration for staggered effect
+            ease: "power1.inOut",
+            opacity: 1,
+          }
+        );
+      });
+    };
+    btnW.onmouseleave = function () {
+      const svgEl = document.querySelectorAll(".path-arr2");
+      svgEl.forEach((path, index) => {
+        gsap.to(path, {
+          "stroke-dashoffset": path.getTotalLength(),
+          duration: 0.5,
+          ease: "power1.inOut",
+          opacity: 0,
+        });
+      });
+    };
   });
 
   function scrollTo() {
@@ -615,7 +685,7 @@
     <div class="sm:flex md:flex lg:flex">
       <div class="m-flex flex">
         <div
-          class="bioDiv text-center ml-3 bg-lime-yellow h-32 text-text-black text-3xl p-3 font-bold"
+          class="bioDiv text-center ml-3 sm:ml-0 md:ml-0 lg:ml-0 bg-lime-yellow h-32 text-text-black text-3xl p-3 font-bold"
         >
           <p class="">B</p>
           <p class="-rotate-360 rotatearr">I</p>
@@ -632,9 +702,9 @@
           />
         </div>
       </div>
-      <div class="para">
+      <div class="para mb-10">
         <h1
-          class="sm:text-4xl md:text-4xl lg:text-4xl text-2xl ml-2 mt-5 font-semibold flex items-center"
+          class="sm:text-4xl md:text-4xl lg:text-4xl text-2xl ml-3 sm:ml-0 md:ml-0 lg:ml-0 mt-5 sm:mt-0 md:mt-0 lg:mt-0 font-semibold flex items-center"
         >
           Full-Stack&nbsp;<span class="text-lime-yellow"
             ><svg
@@ -662,7 +732,7 @@
             </svg>
           </span>&nbsp;developer.
         </h1>
-        <div class="leadin-10">
+        <div class="leadin-10 break-words ml-3 sm:ml-0 md:ml-0 lg:ml-0">
           <p class="text-xl my-4">
             I am a full-stack developer with experience of over 1.5 year
             creating my side projects.
@@ -675,163 +745,73 @@
             I also look forward to working with an experienced team to gain
             experience too.
           </p>
+
+          <div class="buttonS text-xl mt-7">
+            <button
+              class="uppercase font-bold text-left transition-all"
+              id="btnAbt"
+              >About Me<span class="text-lime-yellow">.</span>
+              <span class="pathingBeta opacity-0">
+                <svg
+                  width="154"
+                  height="28"
+                  viewBox="0 0 154 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-auto -mt-6 h-6"
+                >
+                  <path
+                    d="M0 25.5H125L152.5 3"
+                    stroke="#E6FC00"
+                    stroke-width="4"
+                    class="path-arr"
+                  />
+                  <path
+                    d="M135 3H151V19"
+                    stroke="#E6FC00"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="path-arr"
+                  />
+                </svg>
+              </span>
+            </button>
+            <br class="sm:hidden md:hidden lg:hidden" />
+            <button
+              class="uppercase font-bold text-left ml-0 sm:ml-5 md:ml-5 lg:ml-5 mt-5 sm:mt-0 md:mt-0 lg:mt-0"
+              id="btnWrk"
+              >My Work<span class="text-lime-yellow">.</span>
+              <span class="pathingBeta2 opacity-0">
+                <svg
+                  width="154"
+                  height="28"
+                  viewBox="0 0 154 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-auto -mt-6 h-6"
+                >
+                  <path
+                    d="M0 25.5H125L152.5 3"
+                    stroke="#E6FC00"
+                    stroke-width="4"
+                    class="path-arr2"
+                  />
+                  <path
+                    d="M135 3H151V19"
+                    stroke="#E6FC00"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="path-arr2"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-  </div>
-  <div class="sectionNext">
-    <div class="flex">
-      <div
-        class="bioDiv text-center bg-lime-yellow text-text-black text-5xl p-5 font-bold"
-      >
-        <p>B</p>
-        <p class="-rotate-45">I</p>
-        <p>O</p>
-      </div>
-
-      <div
-        class="imgSelf w-32 h-32 overflow-hidden flex justify-center items-center rounded-full mr-0 sm:ml-16 sm:mr-16"
-      >
-        <img
-          src={MyImage}
-          alt=""
-          class="object-cover scale-150 -translate-y-7"
-        />
-      </div>
-
-      <div class="para leading-10">
-        <h1 class="text-4xl font-semibold flex items-center">
-          Full-Stack&nbsp;<span class="text-lime-yellow"
-            ><svg
-              width="65"
-              height="54"
-              viewBox="0 0 65 54"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M63.1147 39.0152L33.1047 53.0472L0.76751 36.8181L31.5676 21.3877L63.1147 39.0152Z"
-                fill="#B4C509"
-              />
-              <path
-                d="M64.0573 28.7158L34.0474 42.7477L1.71017 26.5187L32.5103 11.0883L64.0573 28.7158Z"
-                fill="#C1D309"
-              />
-              <path
-                d="M65 18.4164L34.99 32.4483L2.65282 16.2192L33.4529 0.788866L65 18.4164Z"
-                fill="#E6FC00"
-              />
-            </svg>
-          </span>&nbsp;developer.
-        </h1>
-        <p>
-          I am a full-stack developer with experience of over 1.5 year creating
-          my side projects.
-        </p>
-        <p>
-          I want to develop a creative website while also providing a unique
-          experience to users.
-        </p>
-        <p>
-          I also look forward to working with an experienced team to gain
-          experience too.
-        </p>
-      </div>
-    </div>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
   </div>
 </main>
 
