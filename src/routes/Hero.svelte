@@ -698,7 +698,7 @@
           <img
             src={MyImage}
             alt=""
-            class="object-cover scale-150 -translate-y-7"
+            class="object-cover scale-150 -translate-y-7 pointer-events-none"
           />
         </div>
       </div>
@@ -733,15 +733,15 @@
           </span>&nbsp;developer.
         </h1>
         <div class="leadin-10 break-words ml-3 sm:ml-0 md:ml-0 lg:ml-0">
-          <p class="text-xl my-4">
+          <p class="text-xl my-3">
             I am a full-stack developer with experience of over 1.5 year
             creating my side projects.
           </p>
-          <p class="text-xl my-4">
+          <p class="text-xl my-3">
             I want to develop a creative website while also providing a unique
             experience to users.
           </p>
-          <p class="text-xl my-4">
+          <p class="text-xl my-3">
             I also look forward to working with an experienced team to gain
             experience too.
           </p>
@@ -778,38 +778,60 @@
               </span>
             </button>
             <br class="sm:hidden md:hidden lg:hidden" />
-            <button
-              class="uppercase font-bold text-left ml-0 sm:ml-5 md:ml-5 lg:ml-5 mt-5 sm:mt-0 md:mt-0 lg:mt-0"
-              id="btnWrk"
-              >My Work<span class="text-lime-yellow">.</span>
-              <span class="pathingBeta2 opacity-0">
-                <svg
-                  width="154"
-                  height="28"
-                  viewBox="0 0 154 28"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-auto -mt-6 h-6"
-                >
-                  <path
-                    d="M0 25.5H125L152.5 3"
-                    stroke="#E6FC00"
-                    stroke-width="4"
-                    class="path-arr2"
-                  />
-                  <path
-                    d="M135 3H151V19"
-                    stroke="#E6FC00"
-                    stroke-width="5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="path-arr2"
-                  />
-                </svg>
-              </span>
-            </button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="workBio mt-5">
+    <div class="flex">
+      <div class="m-flex flex">
+        <div
+          class="bioDiv text-center ml-3 sm:ml-0 md:ml-0 lg:ml-0 bg-lime-yellow h-44 text-text-black text-3xl p-2.5 font-bold"
+        >
+          <p class="mt-2">W</p>
+          <p class="">O</p>
+          <p class="">R</p>
+          <p>K</p>
+        </div>
+      </div>
+      <div class="myProjectText">
+        <p class="font-bold text-3xl ml-16">My Work</p>
+        <p class="text-xl ml-16">
+          This is the <span class="text-lime-yellow">highlights</span>
+          of work i have done in past 1 year.
+        </p>
+        <button
+          class="uppercase font-bold text-left ml-16 sm:ml-16 md:ml-16 lg:ml-16 mt-16 sm:mt-3 md:mt-3 lg:mt-3 text-xl"
+          id="btnWrk"
+          >My Work In Detail<span class="text-lime-yellow">.</span>
+          <span class="pathingBeta2 opacity-0">
+            <svg
+              width="276"
+              height="28"
+              viewBox="0 0 276 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-auto -mt-6 h-6"
+            >
+              <path
+                d="M0.5 25.5H247L274.5 3"
+                stroke="#E6FC00"
+                class="path-arr2"
+                stroke-width="4"
+              />
+              <path
+                d="M257 3H273V19"
+                stroke="#E6FC00"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="path-arr2"
+              />
+            </svg>
+          </span>
+        </button>
       </div>
     </div>
   </div>
