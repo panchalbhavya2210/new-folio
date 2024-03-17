@@ -5,6 +5,7 @@
   import Observer from "gsap/dist/Observer";
   import { onMount } from "svelte";
   import MyImage from "../lib/assets/img-self.webp";
+  import ProjectDisp from "./ProjectDisp.svelte";
 
   let clock = new Date();
   let greeting = "";
@@ -696,7 +697,7 @@
           class="imgSelf w-32 h-32 overflow-hidden flex justify-center items-center rounded-full ml-3 sm:ml-16 sm:mr-16"
         >
           <img
-            src={MyImage}
+            src="https://images.unsplash.com/photo-1710268470199-e31451b568c7?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
             class="object-cover scale-150 -translate-y-7 pointer-events-none"
           />
@@ -796,14 +797,14 @@
           <p>K</p>
         </div>
       </div>
-      <div class="myProjectText">
-        <p class="font-bold text-3xl ml-16">My Work</p>
-        <p class="text-xl ml-16">
+      <div class="myProjectText sm:ml-16 md:ml-16 lg:ml-16 ml-5 w-full">
+        <p class="font-bold text-3xl">My Work</p>
+        <p class="text-xl">
           This is the <span class="text-lime-yellow">highlights</span>
           of work i have done in past 1 year.
         </p>
         <button
-          class="uppercase font-bold text-left ml-16 sm:ml-16 md:ml-16 lg:ml-16 mt-16 sm:mt-3 md:mt-3 lg:mt-3 text-xl"
+          class="uppercase font-bold text-left mt-3 sm:mt-3 md:mt-3 lg:mt-3 text-xl"
           id="btnWrk"
           >My Work In Detail<span class="text-lime-yellow">.</span>
           <span class="pathingBeta2 opacity-0">
@@ -832,6 +833,14 @@
             </svg>
           </span>
         </button>
+
+        <div class="grid mt-3 w-11/12">
+          <div class="grid grid-cols-3 grid-rows-1 gap-4 w-full">
+            <ProjectDisp projectName={"Weather Site"} />
+            <ProjectDisp projectName={"Weather Site"} />
+            <ProjectDisp projectName={"Weather Site"} />
+          </div>
+        </div>
       </div>
     </div>
   </div>
