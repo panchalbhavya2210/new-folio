@@ -2,13 +2,16 @@
   export let src;
   export let projectName;
   export let projectDisp;
+  export let className;
+  export let btnID;
+  export let projectClassName;
   import "../lib/global.css";
 </script>
 
 <main>
-  <div class="w-full border-lime-yellow border-2 rounded-sm h-64 p-3">
+  <div class="w-full border-lime-yellow border-2 rounded-lg h-64 p-3">
     <div
-      class="flexTitle flex justify-start items-center h-14 bg-lime-yellow rounded-sm"
+      class="flexTitle flex justify-start items-center h-14 bg-lime-yellow rounded-lg"
     >
       <div class="titleLogo rounded-full ml-2 bg-nav-color">
         <img
@@ -28,9 +31,9 @@
       </p>
     </div>
     <div class="visit mt-2">
-      <button class="uppercase font-bold text-left transition-all" id="btnAbt"
+      <button class="uppercase font-bold text-left transition-all" id={btnID}
         >Visit Site<span class="text-lime-yellow">.</span>
-        <span class="pathingBeta opacity-0">
+        <span class="{projectClassName} opacity-0">
           <svg
             width="154"
             height="28"
@@ -43,7 +46,7 @@
               d="M0 25.5H125L152.5 3"
               stroke="#E6FC00"
               stroke-width="4"
-              class="path-arr"
+              class={className}
             />
             <path
               d="M135 3H151V19"
@@ -51,7 +54,7 @@
               stroke-width="5"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="path-arr"
+              class={className}
             />
           </svg>
         </span>

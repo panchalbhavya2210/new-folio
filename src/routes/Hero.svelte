@@ -77,12 +77,50 @@
     docInter.forEach((item) => {
       obes.observe(item);
     });
-    let btnN = document.getElementById("btnAbt");
-    btnN.onmouseenter = function () {
-      gsap.to(".pathingBeta", {
-        opacity: 1,
-      });
-      const svgEl = document.querySelectorAll(".path-arr");
+    const buttons = [
+      { id: "btnAbt", classPrefix: "pathingBeta", pathSelector: ".path-arr" },
+      { id: "btnWrk", classPrefix: "pathingBeta2", pathSelector: ".path-arr2" },
+      {
+        id: "btnPrjOne",
+        classPrefix: "opaque-path1",
+        pathSelector: ".path-array",
+      },
+      {
+        id: "btnPrjTwo",
+        classPrefix: "opaque-path2",
+        pathSelector: ".path-array2",
+      },
+      {
+        id: "btnPrjThree",
+        classPrefix: "opaque-path3",
+        pathSelector: ".path-array3",
+      },
+    ];
+
+    // Loop through the buttons array to add event listeners
+    buttons.forEach((button) => {
+      const btn = document.getElementById(button.id);
+      btn.addEventListener("mouseenter", () =>
+        handleMouseEnter(button.classPrefix, button.pathSelector)
+      );
+      btn.addEventListener("mouseleave", () =>
+        handleMouseLeave(button.pathSelector)
+      );
+    });
+
+    function handleMouseEnter(classPrefix, pathSelector) {
+      gsap.to(`.${classPrefix}`, { opacity: 1 });
+      const svgEl = document.querySelectorAll(pathSelector);
+      opaqueArrow(svgEl);
+    }
+
+    // Function to handle mouse leave event
+    function handleMouseLeave(pathSelector) {
+      const svgEl = document.querySelectorAll(pathSelector);
+      disopaqueArrow(svgEl, true);
+    }
+
+    function opaqueArrow(svgEl) {
       svgEl.forEach((path, index) => {
         gsap.fromTo(
           path,
@@ -100,9 +138,8 @@
           }
         );
       });
-    };
-    btnN.onmouseleave = function () {
-      const svgEl = document.querySelectorAll(".path-arr");
+    }
+    function disopaqueArrow(svgEl) {
       svgEl.forEach((path, index) => {
         gsap.to(path, {
           "stroke-dashoffset": path.getTotalLength(),
@@ -111,42 +148,7 @@
           opacity: 0,
         });
       });
-    };
-    let btnW = document.getElementById("btnWrk");
-    btnW.onmouseenter = function () {
-      gsap.to(".pathingBeta2", {
-        opacity: 1,
-      });
-      const svgEl = document.querySelectorAll(".path-arr2");
-      svgEl.forEach((path, index) => {
-        gsap.fromTo(
-          path,
-          {
-            // Set initial stroke-dasharray to the length of the path
-            "stroke-dasharray": path.getTotalLength(),
-            "stroke-dashoffset": path.getTotalLength(),
-          },
-          {
-            // Animate stroke-dashoffset to 0
-            "stroke-dashoffset": 0,
-            duration: 0.5 + index * 0.1, // Adjust duration for staggered effect
-            ease: "power1.inOut",
-            opacity: 1,
-          }
-        );
-      });
-    };
-    btnW.onmouseleave = function () {
-      const svgEl = document.querySelectorAll(".path-arr2");
-      svgEl.forEach((path, index) => {
-        gsap.to(path, {
-          "stroke-dashoffset": path.getTotalLength(),
-          duration: 0.5,
-          ease: "power1.inOut",
-          opacity: 0,
-        });
-      });
-    };
+    }
   });
 
   function scrollTo() {
@@ -686,7 +688,7 @@
     <div class="sm:flex md:flex lg:flex">
       <div class="m-flex flex">
         <div
-          class="bioDiv text-center ml-3 sm:ml-0 md:ml-0 lg:ml-0 bg-lime-yellow h-32 text-text-black text-3xl p-3 font-bold"
+          class="bioDiv sticky top-20 text-center ml-3 sm:ml-0 md:ml-0 lg:ml-0 bg-lime-yellow h-32 text-text-black text-3xl p-3 font-bold"
         >
           <p class="">B</p>
           <p class="-rotate-360 rotatearr">I</p>
@@ -797,11 +799,13 @@
           <p>K</p>
         </div>
       </div>
-      <div class="myProjectText sm:ml-16 md:ml-16 lg:ml-16 ml-5 w-full">
-        <p class="font-bold text-3xl">My Work</p>
-        <p class="text-xl">
-          This is the <span class="text-lime-yellow">highlights</span>
-          of work i have done in past 1 year.
+      <div
+        class="myProjectText sm:ml-16 md:ml-16 lg:ml-16 ml-5 w-full relative"
+      >
+        <p class="text-xl w-11/12">
+          This is a list of some side projects I have created as practical
+          practice. This projects helped me understand the fundamentals of the
+          frontend and backend sides of the web.
         </p>
         <button
           class="uppercase font-bold text-left mt-3 sm:mt-3 md:mt-3 lg:mt-3 text-xl"
@@ -833,14 +837,28 @@
             </svg>
           </span>
         </button>
-
-        <div class="grid mt-3 w-11/12">
-          <div class="grid grid-cols-3 grid-rows-1 gap-4 w-full">
-            <ProjectDisp projectName={"Weather Site"} />
-            <ProjectDisp projectName={"Weather Site"} />
-            <ProjectDisp projectName={"Weather Site"} />
-          </div>
-        </div>
+      </div>
+    </div>
+    <div class="grid mt-3 w-full p-10 pt-0 pl-16">
+      <div class="grid grid-cols-3 grid-rows-1 gap-4 w-full">
+        <ProjectDisp
+          projectName={"Weather Site"}
+          className={"path-array"}
+          projectClassName={"opaque-path1"}
+          btnID={"btnPrjOne"}
+        />
+        <ProjectDisp
+          projectName={"Assignment Site"}
+          className={"path-array2"}
+          projectClassName={"opaque-path2"}
+          btnID={"btnPrjTwo"}
+        />
+        <ProjectDisp
+          projectName={"E-commerce Site"}
+          className={"path-array3"}
+          projectClassName={"opaque-path3"}
+          btnID={"btnPrjThree"}
+        />
       </div>
     </div>
   </div>

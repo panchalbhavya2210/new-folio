@@ -3,8 +3,8 @@ export default {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
     colors: {
-      "lime-yellow": "#e6fc00",
-      "light-cyan": "#00f8b4",
+      "lime-yellow": "#00f8b4",
+      "light-cyan": "#",
       "dimmed-cyan": "#52b79f",
       "nav-color": "#2A372D",
       "text-black": "#000",
